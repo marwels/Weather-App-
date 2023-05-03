@@ -1,4 +1,7 @@
 {
   "name": "Weather-App-",
-  "packageManager": "yarn@3.5.1"
+  "packageManager": "yarn@3.5.1",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
 }
