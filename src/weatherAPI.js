@@ -8,7 +8,6 @@ fetch("https://url.com/some/url")
   });
 
 function fetchWeather(searchFor) {
-  const key = "e13d20da1c3441cdb5c133607230805";
   const path = `https://api.weatherapi.com/v1/current.json?key=${key}=${searchFor}`;
   fetch(path, { mode: "cors" })
     .then(function (response) {
