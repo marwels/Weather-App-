@@ -6,7 +6,19 @@
   </head>
 
   <body>
-    <div id="content">Hello!</div>
+    <div id="content">
+      <h1>Current Weather</h1>
+      <form id="searchForm">
+        <label for="search">Search for city</label>
+        <input
+          type="text"
+          id="search"
+          name="search"
+          placeholder="city..."
+        /><br /><br />
+        <button id="fetchingButton">search</button>
+      </form>
+    </div>
     <script src="weatherAPI.js"></script>
   </body>
 </html>
