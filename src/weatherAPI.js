@@ -1,5 +1,3 @@
-const key = "e13d20da1c3441cdb5c133607230805";
-
 // URL (required), options (optional)
 fetch("https://url.com/some/url")
   .then(function (response) {
@@ -8,3 +6,18 @@ fetch("https://url.com/some/url")
   .catch(function (err) {
     // Error :(
   });
+
+function fetchWeather(searchFor) {
+  const key = "e13d20da1c3441cdb5c133607230805";
+  const path = `https://api.weatherapi.com/v1/current.json?key=${key}=${searchFor}`;
+  fetch(path, { mode: "cors" })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (response) {
+      console.log(response.json());
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
