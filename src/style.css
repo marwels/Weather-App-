@@ -19,14 +19,16 @@ body {
   font-family: Quicksand-Regular;
 }
 
-h1 {
+h1.title {
   font-size: 2.5rem;
+  color: aliceblue;
 }
 
 .firstLine {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 #searchForm {
@@ -38,5 +40,24 @@ h1 {
 }
 
 #searchForm label {
+  margin-right: 10px;
+}
+
+#weatherDisplayWrapper {
+  display: flex;
+  column-gap: 4rem;
+  align-items: center;
+}
+
+.conditionWrapper {
+  display: flex;
+}
+
+.section1Wrapper {
+  padding-right: 2rem;
+  border-right: solid rgba(0, 0, 0, 0.494);
+}
+
+.condition {
   margin-right: 10px;
 }

@@ -8,36 +8,47 @@ form.addEventListener("submit", (e) => {
 });
 
 function displayWeather(response) {
-  console.log("works");
+  const section1Wrapper = document.createElement("div");
+  section1Wrapper.className = "section1Wrapper";
+  weatherWrapper.appendChild(section1Wrapper);
+
   const city = document.createElement("h1");
   city.className = "city";
   city.innerText = `${response.location.name}, ${response.location.country}`;
-  weatherWrapper.appendChild(city);
+  section1Wrapper.appendChild(city);
+
+  const conditionWrapper = document.createElement("div");
+  conditionWrapper.className = "conditionWrapper";
+  section1Wrapper.appendChild(conditionWrapper);
 
   const condition = document.createElement("h2");
   condition.className = "condition";
   condition.innerText = response.current.condition.text;
-  weatherWrapper.appendChild(condition);
+  conditionWrapper.appendChild(condition);
 
   const temp = document.createElement("h2");
   temp.className = "temp";
   temp.innerText = `${response.current.temp_c}U+000B0 C`;
-  weatherWrapper.appendChild(temp);
+  conditionWrapper.appendChild(temp);
+
+  const section2Wrapper = document.createElement("div");
+  section2Wrapper.className = "section2Wrapper";
+  weatherWrapper.appendChild(section2Wrapper);
 
   const feels = document.createElement("h3");
   feels.className = "feels additionalInfo";
   feels.innerText = `FEELS LIKE: ${response.current.temp_c}U+000B0 C`;
-  weatherWrapper.appendChild(feels);
+  section2Wrapper.appendChild(feels);
 
   const humidity = document.createElement("h3");
   humidity.className = "humidity additionalInfo";
   humidity.innerText = `HUMIDITY: ${response.current.humidity}%`;
-  weatherWrapper.appendChild(humidity);
+  section2Wrapper.appendChild(humidity);
 
   const wind = document.createElement("h3");
   wind.className = "wind additionalInfo";
   wind.innerText = `WIND: ${response.current.humidity}km/h`;
-  weatherWrapper.appendChild(wind);
+  section2Wrapper.appendChild(wind);
 }
 
 function fetchWeather(searchFor) {
