@@ -8,17 +8,19 @@
 
   <body>
     <div id="content">
-      <h1>Current Weather</h1>
-      <form id="searchForm">
-        <label for="search">Search for city</label>
-        <input
-          type="text"
-          id="search"
-          name="search"
-          placeholder="city..."
-        /><br /><br />
-        <button id="fetchingButton">search</button>
-      </form>
+      <div class="firstLine">
+        <h1>Simply Weather</h1>
+        <form id="searchForm">
+          <label for="search">Search </label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="city..."
+          /><br /><br />
+          <button id="fetchingButton">search</button>
+        </form>
+      </div>
       <div id="weatherDisplayWrapper"></div>
     </div>
     <script src="weatherAPI.js"></script>

@@ -9,7 +9,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 2rem;
   background-color: #ffffff;
   background-repeat: no-repeat;
   background-position: center;
@@ -17,4 +17,26 @@ body {
   background-size: cover;
   background-image: url("./img/white-clouds-blue-background.jpg");
   font-family: Quicksand-Regular;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+.firstLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#searchForm {
+  display: flex;
+  align-items: center;
+  max-height: min-content;
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+}
+
+#searchForm label {
+  margin-right: 10px;
 }
