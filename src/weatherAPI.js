@@ -1,41 +1,42 @@
 const btn = document.getElementById("fetchingButton");
 const form = document.getElementById("searchForm");
 const input = document.getElementById("search");
-const weatherWrapper = document.getElementById("wetherDisplayWrapper");
+const weatherWrapper = document.getElementById("weatherDisplayWrapper");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
 function displayWeather(response) {
-  const city = document.createElement(h2);
+  console.log("works");
+  const city = document.createElement("h1");
   city.className = "city";
-  city.innerText = `${response.location.name}, ${location.country}`;
+  city.innerText = `${response.location.name}, ${response.location.country}`;
   weatherWrapper.appendChild(city);
 
-  const condition = document.createElement(h3);
+  const condition = document.createElement("h2");
   condition.className = "condition";
-  condition.innerText = current.condition.text;
+  condition.innerText = response.current.condition.text;
   weatherWrapper.appendChild(condition);
 
-  const temp = document.createElement(h2);
+  const temp = document.createElement("h2");
   temp.className = "temp";
-  temp.innerText = `${current.temp_c}&degC`;
+  temp.innerText = `${response.current.temp_c}U+000B0 C`;
   weatherWrapper.appendChild(temp);
 
-  const feels = document.createElement(h3);
+  const feels = document.createElement("h3");
   feels.className = "feels additionalInfo";
-  feels.innerText = `FEELS LIKE: ${current.temp_c}`;
+  feels.innerText = `FEELS LIKE: ${response.current.temp_c}U+000B0 C`;
   weatherWrapper.appendChild(feels);
 
-  const humidity = document.createElement(h3);
+  const humidity = document.createElement("h3");
   humidity.className = "humidity additionalInfo";
-  humidity.innerText = `HUMIDITY: ${current.humidity}%`;
+  humidity.innerText = `HUMIDITY: ${response.current.humidity}%`;
   weatherWrapper.appendChild(humidity);
 
-  const wind = document.createElement(h3);
+  const wind = document.createElement("h3");
   wind.className = "wind additionalInfo";
-  wind.innerText = `WIND: ${current.humidity}KPH`;
+  wind.innerText = `WIND: ${response.current.humidity}km/h`;
   weatherWrapper.appendChild(wind);
 }
 
@@ -44,11 +45,12 @@ function fetchWeather(searchFor) {
   const path = `https://api.weatherapi.com/v1/current.json?key=${key}&q=${searchFor}`;
   fetch(path, { mode: "cors" })
     .then(function (response) {
-      displayWeather(response);
       return response.json();
     })
     .then(function (response) {
       console.log(response);
+      let weatherINFO = response;
+      displayWeather(weatherINFO);
     })
     .catch((err) => {
       console.error(err);
