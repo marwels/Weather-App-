@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Quicksand-Regular;
+  src: url("./fonts/Quicksand-Regular.ttf") format("truetype");
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url("./img/white-clouds-blue-background.jpg");
+  font-family: Quicksand-Regular;
+}
