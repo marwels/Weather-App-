@@ -28,7 +28,7 @@ function displayWeather(response) {
 
   const temp = document.createElement("h2");
   temp.className = "temp";
-  temp.innerText = `${response.current.temp_c}U+000B0 C`;
+  temp.innerText = `${response.current.temp_c}\u00B0C`;
   conditionWrapper.appendChild(temp);
 
   const section2Wrapper = document.createElement("div");
@@ -37,7 +37,7 @@ function displayWeather(response) {
 
   const feels = document.createElement("h3");
   feels.className = "feels additionalInfo";
-  feels.innerText = `FEELS LIKE: ${response.current.temp_c}U+000B0 C`;
+  feels.innerText = `FEELS LIKE: ${response.current.temp_c}\u00B0C`;
   section2Wrapper.appendChild(feels);
 
   const humidity = document.createElement("h3");
@@ -54,18 +54,10 @@ function displayWeather(response) {
 function fetchWeather(searchFor) {
   const key = "";
   const path = `https://api.weatherapi.com/v1/current.json?key=${key}&q=${searchFor}`;
-  fetch(path, { mode: "cors" })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (response) {
-      console.log(response);
-      let weatherINFO = response;
-      displayWeather(weatherINFO);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  return fetch(path, { mode: "cors" }).then(function (response) {
+    if (!response.ok) throw new Error(`Error code: ${response.status}`);
+    return response.json();
+  });
 }
 
 function onSearch(e) {
@@ -73,7 +65,14 @@ function onSearch(e) {
   if (input.value !== "") {
     searchFor = input.value;
     console.log(searchFor);
-    fetchWeather(searchFor);
+    fetchWeather(searchFor)
+      .then(function (weatherINFO) {
+        console.log(weatherINFO);
+        displayWeather(weatherINFO);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   } else {
     alert("Type what place you are looking for");
   }
